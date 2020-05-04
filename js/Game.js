@@ -9,6 +9,7 @@
  		this.phrases = this.createPhrases();
  		this.missed = 0;
  		this.activePhrase = null;
+ 		this.usedPhrases = [];
  	}
 
  	createPhrases() {
@@ -21,10 +22,15 @@
  	}
 
  	getRandomPhrase() {
+	    if (this.phrases.length === 0) {
+	        this.phrases = this.usedPhrases;
+	        this.usedPhrases = [];
+	    }
  		const i = Math.floor(Math.random() * this.phrases.length);
- 		return this.phrases[i];
- 		// ToDo: beef this up to splice the phrase out, and then copy it into another array, etc etc -
- 		//		IOW, make sure ye cannae get the same phrase twice in a row.
+ 		const randomPhrase = this.phrases[i];
+ 		this.phrases.splice(i,1);
+ 		this.usedPhrases.push(randomPhrase);
+ 		return randomPhrase;
  	}
 
  	test() {

@@ -34,12 +34,13 @@
  		displayDiv.insertBefore(levelHead,ul);
  	}
 
- 	checkLetter(letter) {
+ 	checkLetter(x) {
  		let found = false;
  		console.log(`this.hiddenLetters: ${this.hiddenLetters}; this.chosenLetters: ${this.chosenLetters}`);
- 		if (this.hiddenLetters.includes(letter) || this.chosenLetters.includes(letter)) {
+ 		if (this.hiddenLetters.includes(x) || this.chosenLetters.includes(x)) {
  			found = true;
  		}
+    // this.chosenLetters += x;
  		return found;
  	}
 
@@ -56,7 +57,6 @@
 		})
 		const regex = new RegExp(x,'g');
 		this.hiddenLetters = this.hiddenLetters.replace(regex,'');
-		this.chosenLetters += x;
  	}
 
  	test() {

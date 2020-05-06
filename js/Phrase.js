@@ -13,22 +13,23 @@
  		const displayDiv = document.getElementById('phrase');
  		const ul = displayDiv.firstElementChild;
  		const characters = this.text.split('');
+ 		let html = `<div class="word">`;
  		characters.forEach((character) => {
  			const li = document.createElement('li');
  			if (character !== " ") {
- 				li.classList = `hide letter ${character}`;
- 				li.textContent = character;
+ 				html += `<li class="hide letter ${character}">${character}</li>`;
  			} else {
- 				li.classList = `space`;
+ 				html += `</div>
+ 						 <div class="word">
+ 						 	<li class= "space"> </li>`;
  			}
- 			ul.appendChild(li);
  		});
+ 		html += `</div>`;
+ 		ul.innerHTML = html;
  		const levelHead = document.createElement('h3');
  		levelHead.classList = 'header';
  		levelHead.innerHTML = `Difficulty rating: ${this.level.toUpperCase()}`;
  		displayDiv.insertBefore(levelHead,ul);
-// Good: that's working. Now, another ToDo:
-// 2) Experiment with an extra <div> around each word
  	}
 
 

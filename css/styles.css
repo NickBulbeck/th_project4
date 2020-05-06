@@ -130,6 +130,9 @@ button {
   animation-duration: .5s;
 }
 
+.word {
+  display: inline-block;
+}
 
 /* Keyboard */
 

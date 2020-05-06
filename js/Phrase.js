@@ -6,7 +6,7 @@
 
  	constructor(text,level) {
  		this.text = text.toLowerCase();
- 		this.level = level || null;
+ 		this.level = level.toUpperCase() || null;
  	}
 
  	addPhraseToDisplay() {
@@ -28,10 +28,9 @@
  		ul.innerHTML = html;
  		const levelHead = document.createElement('h3');
  		levelHead.classList = 'header';
- 		levelHead.innerHTML = `Difficulty rating: ${this.level.toUpperCase()}`;
+ 		levelHead.innerHTML = `Difficulty rating: ${this.level}`;
  		displayDiv.insertBefore(levelHead,ul);
  	}
-
 
 
  	test() {

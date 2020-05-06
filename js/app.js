@@ -2,10 +2,16 @@
  * Project 4 - OOP Game App
  * app.js */
 
+ 
+
 const publicStaticVoidMainStringAaaaargh = () => { // I am soooo funny...
 
-	const game = new Game(data_sourceData);
-	game.startGame();
+	let game = new Game(data_sourceData);
+
+	const startButton = document.getElementById('btn__reset');
+	startButton.addEventListener('click', function() {
+		game.startGame();
+	})
 
 }
 

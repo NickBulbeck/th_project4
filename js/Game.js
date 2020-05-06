@@ -30,7 +30,14 @@
  		const randomPhrase = this.phrases[i];
  		this.phrases.splice(i,1);
  		this.usedPhrases.push(randomPhrase);
+ 		this.activePhrase = randomPhrase;
  		return randomPhrase;
+ 	}
+
+ 	startGame() {
+ 		const overlay = document.getElementById('overlay');
+ 		overlay.style.display = "none";
+ 		this.getRandomPhrase().addPhraseToDisplay()
  	}
 
  	test() {

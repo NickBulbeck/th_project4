@@ -5,9 +5,7 @@
  const phrase = new Phrase("I seem to be having terrible problems with my lifestyle","hard");
  const game = new Game(data_sourceData);
 
+ game.getRandomPhrase().addPhraseToDisplay();
+
  phrase.test();
  game.test();
-
- for (let i=0; i<game.sourceData.length; i++) {
- 	console.log(game.getRandomPhrase().text);
- }

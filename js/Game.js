@@ -40,6 +40,10 @@
  		this.getRandomPhrase().addPhraseToDisplay()
  	}
 
+ 	handleInteraction() {
+ 		
+ 	}
+
  	test() {
  		// console.log(`${this.getRandomPhrase().text}`);
  	}

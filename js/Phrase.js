@@ -10,7 +10,8 @@
  	}
 
  	addPhraseToDisplay() {
- 		const ul = document.getElementById('phrase').firstElementChild;
+ 		const displayDiv = document.getElementById('phrase');
+ 		const ul = displayDiv.firstElementChild;
  		const characters = this.text.split('');
  		characters.forEach((character) => {
  			const li = document.createElement('li');
@@ -22,8 +23,11 @@
  			}
  			ul.appendChild(li);
  		});
+ 		const levelHead = document.createElement('h3');
+ 		levelHead.classList = 'header';
+ 		levelHead.innerHTML = `Difficulty rating: ${this.level.toUpperCase()}`;
+ 		displayDiv.insertBefore(levelHead,ul);
 // Good: that's working. Now, another ToDo:
-// 1) Add a heading that notes the difficulty level.
 // 2) Experiment with an extra <div> around each word
  	}
 

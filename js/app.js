@@ -17,8 +17,7 @@ const publicStaticVoidMainStringAaaaargh = () => { // I am soooo funny...
 	keyboard.addEventListener('click', function(event) {
 		if (event.target.tagName === 'BUTTON') {
 			const x = event.target.textContent;
-			console.log(game.activePhrase.checkLetter(x));
-			game.activePhrase.showMatchedLetter(x);
+			game.handleInteraction(x);
 		}
 	})
 
@@ -26,9 +25,7 @@ const publicStaticVoidMainStringAaaaargh = () => { // I am soooo funny...
 	    const code = event.keyCode;
 	    const x = String.fromCharCode(code).toLowerCase();
 	    if (/^[a-z]+$/.test(x)) {
-	        // game.handleInteraction(x);
-			console.log(game.activePhrase.checkLetter(x));
-			game.activePhrase.showMatchedLetter(x);
+        game.handleInteraction(x);
 	    }
 	});
 

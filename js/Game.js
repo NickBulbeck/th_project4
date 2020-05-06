@@ -40,12 +40,28 @@
  		this.getRandomPhrase().addPhraseToDisplay()
  	}
 
- 	handleInteraction() {
- 		
+ 	handleInteraction(letter) {
+ 		if (this.activePhrase.checkLetter(letter)) {
+      this.activePhrase.showMatchedLetter(letter);
+    }
  	}
+
+  checkForWin() {
+
+  }
+
+  removeLife() {
+
+  }
+
+  gameOver() {
+    
+  }
 
  	test() {
  		// console.log(`${this.getRandomPhrase().text}`);
  	}
 
  }
+
+

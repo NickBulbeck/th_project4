@@ -41,12 +41,10 @@
  	}
 
  	handleInteraction(letter) {
-// ToDo: this isn't working, because it keeps removing a life when a key is repeatedly pressed.
 // Also, disable the key.
 //  [...document.querySelectorAll("a")]
 //   .filter(a => a.textContent.includes("your search term"))
 //   .forEach(a => console.log(a.textContent))
-    console.log(this);
  		if (this.activePhrase.checkLetter(letter)) {
       this.activePhrase.showMatchedLetter(letter);
     } else {

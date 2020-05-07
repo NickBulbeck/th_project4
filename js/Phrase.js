@@ -36,19 +36,19 @@
 
  	checkLetter(x) {
  		let found = false;
- 		console.log(`this.hiddenLetters: ${this.hiddenLetters}; this.chosenLetters: ${this.chosenLetters}`);
  		if (this.hiddenLetters.includes(x) || this.chosenLetters.includes(x)) {
  			found = true;
  		}
-    // this.chosenLetters += x;
+    this.chosenLetters += x;
  		return found;
  	}
 
 // Chosen a parameter of x because letter is already taken - too confusing
  	showMatchedLetter(x) {
- 		if (this.chosenLetters.includes(x)) {
- 			return null;
- 		}
+ 		// if (this.chosenLetters.includes(x)) {
+ 		// 	return null;
+ 		// }
+    // this.chosenLetters += x;
  		let classes = ".hide.letter." + x;
  		const letters = document.querySelectorAll(classes);
  		letters.forEach((letter) => {

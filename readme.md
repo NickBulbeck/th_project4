@@ -10,6 +10,7 @@ I've made a few minor additions to the rubric:
 - An added H3 element displaying the level of difficulty.
 - Additional properties for both Game and Phrase to help detect an end-of-game condition, and to enable methods to work for both click and keyup events.
 - Additional properties on the Game object to prevent the same phrase displaying twice in succession.
+- A static "messages" property on the Game class to display at the end of the game.
 
 I've taken the liberty of making the following alterations:
 - I don't like the idea of a Phrase object with a "phrase" property. So, I've used a "text" property instead for the actual phrase content.

@@ -7,10 +7,12 @@
 const publicStaticVoidMainStringAaaaargh = () => { // I am soooo funny...
 
 	let game = new Game(data_sourceData);
+	const arthur = new StarshipHeartOfGold;
 
 	const startButton = document.getElementById('btn__reset');
 	startButton.addEventListener('click', function() {
 		game.startGame();
+		arthur.ford();
 	})
 
 	const keyboard = document.getElementById('qwerty');

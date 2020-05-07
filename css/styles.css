@@ -216,3 +216,20 @@ button:disabled {
 .lose a {
   color: var(--color-lose);
 }
+
+/* Large friendly letters */
+
+#dontPanic {
+  position: relative;
+  z-index: -5;
+}
+
+#dontPanic p {
+  font-family: 'Baloo Bhaina 2', cursive;
+  font-size: 4rem;
+  margin-top: -1rem;
+  margin-bottom: -4rem;
+  position: relative;
+  top:-20px;
+}
+

@@ -1,9 +1,5 @@
 /*
-  Handles the douglas adams button.
-  creates a timer that counts down in powers of 2.
-  creates a display, behind the game board, saying "don't panic" in large friendly letters
-  when the timer runs out - when it's evens and we have normality - it stops the game
-  -- and gives the message: So long, and thanks for all the fish!
+  The Douglas Adams themed easter egg: just a wee message.
 
 */
 
@@ -50,14 +46,7 @@ class StarshipHeartOfGold {
   }
 
   ford() {
-  	setInterval(this.trillian.bind(this),17);
+  	setInterval(this.trillian.bind(this),30);
   }
-
-  
-
-/*
-	Sets the colour to an RGB value. Increments the r, g and b by a given amount unless they're 256, in which case it gets reset to 0 again.
-
-*/
 
 }

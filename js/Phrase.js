@@ -7,13 +7,13 @@
  	constructor(text,level) {
  		this.text = text.toLowerCase();
  		this.level = level.toUpperCase() || null;
- 		this.hiddenLetters = this.text;
+ 		this.hiddenLetters = this.text.replace(/ /g,'');
  		this.chosenLetters = '';
  	}
 
  	addPhraseToDisplay() {
- 		const displayDiv = document.getElementById('phrase');
- 		const ul = displayDiv.firstElementChild;
+    const displayDiv = document.getElementById('phrase');
+ 		const ul = displayDiv.getElementsByTagName('UL')[0];
  		const characters = this.text.split('');
  		let html = `<div class="word">`;
  		characters.forEach((character) => {
@@ -35,6 +35,7 @@
  	}
 
  	checkLetter(x) {
+    console.log(this.chosenLetters);
  		let found = false;
  		if (this.hiddenLetters.includes(x) || this.chosenLetters.includes(x)) {
  			found = true;
@@ -45,10 +46,6 @@
 
 // Chosen a parameter of x because letter is already taken - too confusing
  	showMatchedLetter(x) {
- 		// if (this.chosenLetters.includes(x)) {
- 		// 	return null;
- 		// }
-    // this.chosenLetters += x;
  		let classes = ".hide.letter." + x;
  		const letters = document.querySelectorAll(classes);
  		letters.forEach((letter) => {
@@ -57,10 +54,6 @@
 		})
 		const regex = new RegExp(x,'g');
 		this.hiddenLetters = this.hiddenLetters.replace(regex,'');
- 	}
-
- 	test() {
- 		// console.log(`In the test method fae the Phrase class: ${this.text}, ${this.level}`)
  	}
 
  }

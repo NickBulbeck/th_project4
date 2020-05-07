@@ -28,7 +28,7 @@ body {
   justify-content: space-evenly;
   flex-direction: column;
   display: flex;
-  height: 100vh;
+  /*height: 100vh;*/
 }
 
 li, ol, ul {
@@ -67,6 +67,10 @@ button {
   transition: var(--transition);
   cursor: pointer;
 }
+button:disabled {
+  font-style: italic;
+}
+
 
 #btn__reset {
 	width: 200px;

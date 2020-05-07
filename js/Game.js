@@ -22,10 +22,10 @@
  	}
 
  	getRandomPhrase() {
-	    if (this.phrases.length === 0) {
-	        this.phrases = this.usedPhrases;
-	        this.usedPhrases = [];
-	    }
+    if (this.phrases.length === 0) {
+        this.phrases = this.createPhrases();
+        this.usedPhrases = [];
+    }
  		const i = Math.floor(Math.random() * this.phrases.length);
  		const randomPhrase = this.phrases[i];
  		this.phrases.splice(i,1);
@@ -41,19 +41,35 @@
  	}
 
  	handleInteraction(letter) {
-// Also, disable the key.
-//  [...document.querySelectorAll("a")]
-//   .filter(a => a.textContent.includes("your search term"))
-//   .forEach(a => console.log(a.textContent))
+    // console.log(this.activePhrase);
+    // console.log(this.activePhrase.hiddenLetters);
+    // console.log(this.activePhrase.chosenLetters);
+    const buttonsCollection = document.getElementById('qwerty')
+                           .getElementsByTagName('BUTTON');
+    const button = Array.from(buttonsCollection)
+                        .filter(b => b.textContent === letter)[0];
  		if (this.activePhrase.checkLetter(letter)) {
       this.activePhrase.showMatchedLetter(letter);
+      button.classList.add("chosen");
     } else {
       this.removeLife();
+      button.classList.add("wrong");
+    }
+    button.disabled = true;
+    const result = this.checkForWin();
+    if (result) {
+      this.gameOver(result);
     }
  	}
 
   checkForWin() {
-
+    let result = null;
+    if (this.missed === 5) {
+      result = "lose";
+    } else if (this.activePhrase.hiddenLetters === "") {
+      result = "win";
+    }
+    return result;
   }
 
   removeLife() {
@@ -62,18 +78,35 @@
     heart.firstElementChild.src = "images/lostHeart.png";
     heart.classList = "tried";
     this.missed++;
-    if (this.missed === 5) {
-      this.gameOver();
-    } 
   }
 
-  gameOver() {
-    
+  gameOver(result) {
+    this.clearTheBoard();
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = "";
+    const finishingStyle = `start ${result}`
+    overlay.classList = finishingStyle;
+    // Add a win/lose message
   }
 
- 	test() {
- 		// console.log(`${this.getRandomPhrase().text}`);
- 	}
+  clearTheBoard() {
+    this.missed = 0;
+    const qwerty = document.getElementById('qwerty');
+    const theKeys = Array.from(qwerty.getElementsByTagName('BUTTON'));
+    const theBoard = document.getElementById('phrase');
+    const hearts = Array.from(document.querySelectorAll('.tried'));
+    console.log(hearts);
+    theBoard.innerHTML = '<ul></ul>';
+    theKeys.forEach((key) => {
+      key.disabled = false;
+      key.classList.remove('chosen');
+      key.classList.remove('wrong');
+    })
+    hearts.forEach((heart) => {
+      heart.firstElementChild.src = "images/liveHeart.png";
+      heart.classList = "tries";
+    })
+  }
 
  }
 

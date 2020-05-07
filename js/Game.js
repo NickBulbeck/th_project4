@@ -3,6 +3,12 @@
  * Game.js */
 
  class Game {
+ 
+  static  messages = {
+      win: `Congratulations - you win! Click 'Start' to play again...`,
+      lose: `Sorry - you lose! Click 'Start' to try again...`
+  } 
+
 
  	constructor(sourceData) {
  		this.sourceData = sourceData;
@@ -86,7 +92,8 @@
     overlay.style.display = "";
     const finishingStyle = `start ${result}`
     overlay.classList = finishingStyle;
-    // Add a win/lose message
+    const messageH1 = document.getElementById('game-over-message');
+    messageH1.textContent = Game.messages[result];
   }
 
   clearTheBoard() {
